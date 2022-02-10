@@ -1,6 +1,6 @@
 # Information Retrieval Metrics and Plots Computation
 
-A python script that computes common Information Retrieval's metrics and creates a Precision-Recall curve plot for a given set of results and a given set of the total number of relevant documents in the collection for each information need.
+A python script that computes common Information Retrieval's metrics and creates a Precision-Recall curve plot for a given set of results.
 
 **Metrics computed by this script:**
 - Set of Precision values.
@@ -9,15 +9,15 @@ A python script that computes common Information Retrieval's metrics and creates
 - Mean Average Precision (MAP).
 
 **Plots:**
-- Precision-Recall Curve for a single or multiple query.
+- Precision-Recall Curve for a single or multiple query (non-interpolated).
 
 
 ## Installation Requirements
 
-The script can be executed from a terminal with Python and the next packages installed.
+To execute this script from the terminal you should have installed:
 
 - [Python](https://www.python.org/downloads/).
-- [Pip] that allows to install Python's packages.
+- [Pip](https://pypi.org/project/pip/) that allows to install python's packages.
 ```
 python -m pip install -U pip
 ```
@@ -30,81 +30,80 @@ pip install -U scikit-learn
 python -m pip install -U matplotlib
 ```
 
-## Usage
+## Usage Examples
 
 ### How to use the script?
 
 From the terminal, call the script's name passing as arguments:
-1. Ordered set of relevant and non-relevant documents.
+1. Ordered set of relevant and non-relevant results.
 2. Total number of relevant documents on the collection for the information need. 
 
 So,
 ```
-python computeMetrics.py _<orderedSet>_ _<totalNumberRelevant>_
+python computeMetrics.py *<orderedSet>* *<totalNumberRelevant>*
 ```
 
-You can also use this script with more than one query:
+You can also use this script to evaluate more than one query:
 ```
-python computeMetrics.py _<orderedSet1,orderedSet2,...,orderedSet7>_ _<totalNumberRelevant1, totalNumberRelevant2, ..., totalNumberRelevant7>_
+python computeMetrics.py *<orderedSet1,orderedSet2,...,orderedSet7>* *<totalNumberRelevant1, totalNumberRelevant2, ..., totalNumberRelevant7>*
 ```
 
 ### Example 1: Single Query
 
-In order to compute the metrics for a single queries, we can run the next terminal command:
+In order to compute the metrics for a single query, run on the terminal:
 
 ```
 python computeMetrics.py RNRRRRNNNR 6
 ```
 
-The script is going to print on the console the next log:
+The script prints as result:
 
 ```
-SET:
-RNRRRRNNNR
+SET: RNRRRRNNNR
 
-PRECISION:
-[1.0, 0.5, 0.6666666666666666, 0.75, 0.8, 0.8333333333333334, 0.7142857142857143, 0.625, 0.5555555555555556, 0.6]
+PRECISION: [1.0, 0.5, 0.6666666666666666, 0.75, 0.8, 0.8333333333333334, 0.7142857142857143, 0.625, 0.5555555555555556, 0.6]
 
-RECALL:
-[0.16666666666666666, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 1.0]
+RECALL: [0.16666666666666666, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 1.0]
 
-AVERAGE PRECISION: 
-0.7749999999999999
+AVERAGE PRECISION: 0.7749999999999999
 
-MAP:
-0.7749999999999999
+MAP: 0.7749999999999999
 ```
 
-And will create the next plot:
-![p-r curve for example1](docs/example1.png)
+And creates the Precision-Recall curve plot:
+![p-r curve for example 1](docs/example1.png)
 
 
-### Example 1: Multiple Queries
+### Example 2: Multiple Queries
 
-In order to compute the metrics for multiple queries, we can run the next terminal command:
-
-```
-python computeMetrics.py RNRRRRNNNR 6
-```
-
-The script is going to print on the console the next log:
+In order to compute the metrics for multiple queries, run on the terminal:
 
 ```
-SET:
-RNRRRRNNNR
-
-PRECISION:
-[1.0, 0.5, 0.6666666666666666, 0.75, 0.8, 0.8333333333333334, 0.7142857142857143, 0.625, 0.5555555555555556, 0.6]
-
-RECALL:
-[0.16666666666666666, 0.16666666666666666, 0.3333333333333333, 0.5, 0.6666666666666666, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 0.8333333333333334, 1.0]
-
-AVERAGE PRECISION: 
-0.7749999999999999
-
-MAP:
-0.7749999999999999
+python3 computeMetrics.py RNRNNRNNRR,NRNNRNRNNN 6,6
 ```
 
-And will create the next plot:
-![p-r curve for example1](docs/example2.png)
+The script prints as result:
+
+```
+SET: RNRNNRNNRR
+
+PRECISION: [1.0, 0.5, 0.6666666666666666, 0.5, 0.4, 0.5, 0.42857142857142855, 0.375, 0.4444444444444444, 0.5]
+
+RECALL: [0.16666666666666666, 0.16666666666666666, 0.3333333333333333, 0.3333333333333333, 0.3333333333333333, 0.5, 0.5, 0.5, 0.6666666666666666, 0.8333333333333334]
+
+AVERAGE PRECISION: 0.6222222222222221
+
+
+SET: NRNNRNRNNN
+
+PRECISION: [0.0, 0.5, 0.3333333333333333, 0.25, 0.4, 0.3333333333333333, 0.42857142857142855, 0.375, 0.3333333333333333, 0.3]
+
+RECALL:[0.0, 0.16666666666666666, 0.16666666666666666, 0.16666666666666666, 0.3333333333333333, 0.3333333333333333, 0.5, 0.5, 0.5, 0.5]
+
+AVERAGE PRECISION: 0.44285714285714284
+
+MAP: 0.5325396825396824
+```
+
+And creates the Precision-Recall curve plot:
+![p-r curve for example 2](docs/example2.png)
