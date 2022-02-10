@@ -28,7 +28,7 @@ A python script that computes common Information Retrieval's metrics and creates
 
 <a name="installation"/>
 
-## Instalation Requirements 
+## Installation Requirements 
 
 To execute this script from the terminal you should have installed:
 
