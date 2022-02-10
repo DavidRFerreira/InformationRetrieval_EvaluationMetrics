@@ -12,7 +12,15 @@ A python script that computes common Information Retrieval's metrics and creates
 - Precision-Recall Curve for a single or multiple query (non-interpolated).
 
 
-## Installation Requirements
+
+## Table of Contents 
+1. [Installation Requirements](#installation)
+2. [Usage Examples](#usage)
+    1. [How to use?](#how-to)
+    2. [Example 1: Single Query](#example1)
+    3. [Example 2: Multiple Queries](#example2)
+
+## Installation Requirements <a name="installation"/>
 
 To execute this script from the terminal you should have installed:
 
@@ -30,9 +38,9 @@ pip install -U scikit-learn
 python -m pip install -U matplotlib
 ```
 
-## Usage Examples
+## Usage Examples <a name="usage"/>
 
-### How to use the script?
+### How to use? <a name="how-to"/>
 
 From the terminal, call the script's name passing as arguments:
 1. Ordered set of relevant and non-relevant results.
@@ -48,7 +56,7 @@ You can also use this script to evaluate more than one query:
 python computeMetrics.py *<orderedSet1,orderedSet2,...,orderedSet7>* *<totalNumberRelevant1, totalNumberRelevant2, ..., totalNumberRelevant7>*
 ```
 
-### Example 1: Single Query
+### Example 1: Single Query <a name="example1"/>
 
 In order to compute the metrics for a single query, run on the terminal:
 
@@ -74,7 +82,7 @@ And creates the Precision-Recall curve plot:
 ![p-r curve for example 1](docs/example1.png)
 
 
-### Example 2: Multiple Queries
+### Example 2: Multiple Queries <a name="example2"/>
 
 In order to compute the metrics for multiple queries, run on the terminal:
 
