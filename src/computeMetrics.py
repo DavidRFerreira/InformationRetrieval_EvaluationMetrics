@@ -21,19 +21,19 @@ def computeAvP(set, numTotalRelevant, precision, recall, averagePrecision):
 
     averagePrecision = averagePrecision / totalRelevantAlreadyFound
 
-    print("\nSET: ")
+    print("\nSET:")
     print(set)
-    print("\nPRECISION: ")
+    print("\nPRECISION:")
     print(precision)
     print("\nRECALL:")
     print(recall)
-    print("\nAverage Precision: ")
+    print("\nAVERAGE PRECISION:")
     print(averagePrecision)
     print("")
     return averagePrecision
 
 
-# Plots Precision-Recall curves for multiple queries.
+# Plots Precision-Recall curves for one or more query.
 def plotMultiplePrecisionRecallCurve(precision, recall):
     _, ax = plt.subplots(figsize=(7, 8))
     colors = ["navy", "darkorange", "teal", "red", "bisque", "olive", "lavender"]
@@ -50,7 +50,7 @@ def plotMultiplePrecisionRecallCurve(precision, recall):
 # Computes Mean Average Precision.
 def computeMAP(avpSet):
     MAP = statistics.mean(avpSet)
-    print("\nMAP")
+    print("\nMAP:")
     print(MAP)
 
 
@@ -74,8 +74,6 @@ for idx, set in enumerate(results):
     precisionSet.append(precision)
     recallSet.append(recall)
 
-
-print(avpSet)
 computeMAP(avpSet)
 plotMultiplePrecisionRecallCurve(precisionSet, recallSet)
 
