@@ -32,18 +32,18 @@ A python script that computes common Information Retrieval's metrics and creates
 
 To execute this script from the terminal you should have installed:
 
-- [Python](https://www.python.org/downloads/).
-- [Pip](https://pypi.org/project/pip/) that allows to install python's packages.
+- [Python](https://www.python.org/downloads/)
+- [Pip](https://pypi.org/project/pip/) that allows to install python's packages
 ```
 python -m pip install -U pip
 ```
-- [scikit-learn](https://scikit-learn.org/stable/install.html) package.
+- [scikit-learn](https://scikit-learn.org/stable/install.html) package
 ```
 pip install -U scikit-learn
 ```
-- [matplotlib](https://matplotlib.org/stable/users/installing/index.html) package. 
+- [matplotlib](https://matplotlib.org/stable/users/installing/index.html) package
 ```
-python -m pip install -U matplotlib
+pip install -U matplotlib
 ```
 
 <a name="usage"/>
