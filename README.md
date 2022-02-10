@@ -55,12 +55,12 @@ From the terminal, execute the script passing two arguments:
 2. Total number of relevant documents on the collection for the information need. 
 
 ```
-python computeMetrics.py **<orderedSet>** **<totalNumberRelevant>**
+python computeMetrics.py <orderedSet> <totalNumberRelevant>
 ```
 
 You can also use this script to evaluate more than one query:
 ```
-python computeMetrics.py **<orderedSet1,orderedSet2,...,orderedSet7>** **<totalNumberRelevant1, totalNumberRelevant2, ..., totalNumberRelevant7>**
+python computeMetrics.py <orderedSet1,orderedSet2,...,orderedSet7> <totalNumberRelevant1,totalNumberRelevant2,...,totalNumberRelevant7>
 ```
 
 <a name="example1"/>
