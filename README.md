@@ -16,9 +16,8 @@ A python script that computes common Information Retrieval's metrics and creates
 ## Table of Contents 
 1. [Installation Requirements](#installation)
 2. [Usage Examples](#usage)
-    1. [How to use?](#how-to)
-    2. [Example 1: Single Query](#example1)
-    3. [Example 2: Multiple Queries](#example2)
+    1. [Example 1: Single Query](#example1)
+    2. [Example 2: Multiple Queries](#example2)
 4. [Evaluation in Information Retrieval Briefly Explained](#explanation)
     1. [Precision and Recall](#precision-recall)
     2. [Average Precision](#ap)
@@ -51,15 +50,10 @@ python -m pip install -U matplotlib
 
 ## Usage Examples 
 
-<a name="how-to"/>
-
-### How to use? 
-
 From the terminal, execute the script passing two arguments:
 1. Ordered set of relevant and non-relevant results.
 2. Total number of relevant documents on the collection for the information need. 
 
-So,
 ```
 python computeMetrics.py *<orderedSet>* *<totalNumberRelevant>*
 ```
@@ -79,7 +73,7 @@ In order to compute the metrics for a single query, run on the terminal:
 python computeMetrics.py RNRRRRNNNR 6
 ```
 
-Again, the number '6' means that there are in total 6 documents in the collection that are relevant to the information need being evaluated.
+Again, the number '6' means that there are in total 6 documents in the collection that are relevant to the evaluated information need.
 
 The script prints as result:
 
@@ -182,15 +176,22 @@ A Precision-Recall curve plots the tradeoff between precision and recall for dif
 
 ### Practical Example
 
-A user wants to information on whether eating fruits can improve his immune system (**information need**).
-The user search for [fruits improve immune system] (**query**).
+A user wants information on whether eating fruits can improve his immune system (**information need**).
+The user searches for [fruits improve immune system] (**query**).
 
 Let's assume that the system returned 5 results.
-From the first result to the left they were classified as - Relevant, Relevant, Non-Relevant, Relevant, Non-Relevant - to the user's information need. This can be translated into the set RRNRN.
-Let's also assume that in the index collection there are in total 8 results relevant to this information need. 
+
+From the first result to the last one they were classified as - Relevant, Relevant, Non-Relevant, Relevant, Non-Relevant - to the user's information need. 
+
+This can be translated into the set RRNRN.
+
+Let's also assume that in the indexed collection there are in total 8 results relevant to this information need. 
 
 ```
 Precision = (3 / 5) = 0.6
+```
+
+```
 Recall = (3 / 8) = 0.375
 ```
 
@@ -201,13 +202,15 @@ We can compute the precision and recall value at each position of the 5 results.
 | **Recall** | 1/8 | 2/8 | 2/8 | 3/8 | 3/8 |
 | **Precision** | 1/1 | 2/2 | 2/3 | 3/4 | 3/5 |
 
-We can compute the average precision (AvP) using the values of precision for relevant documents. 
+The Precision-Recall curve is built with those sets of recall and precision values. 
+
+We can now compute the average precision (AvP) using the values of precision for relevant documents. 
 
 ```
 AvP = (1/1 + 2/2 + 3/4) / 3 = 0.91 
 ```
 
-Let's assume that the user did another search and for other a different information need, the system displayed an average precision of 0.82. 
+Let's assume that the user did second search with a different information need for which the system displayed an average precision of 0.82. 
 
 We can compute the system's Mean Average Precision (MAP) for both information needs as:
 ```
@@ -217,6 +220,4 @@ MAP = (0.91 + 0.82) / 2 = 0.865
 <a name="further-reading"/>
 
 ### Further Reading
-```
 Manning, C., Raghavan, P., Schutze, H. (2009). An Introduction to Informational Retrieval. Cambridge University Press.
-```
