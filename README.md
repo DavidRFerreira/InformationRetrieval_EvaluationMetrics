@@ -1,4 +1,4 @@
-# Information Retrieval Metrics and Plots Computation
+# Information Retrieval Evaluation Metrics and Plots Computation
 
 A python script that computes common Information Retrieval's metrics and creates a Precision-Recall curve plot for a given set of results.
 
@@ -210,7 +210,7 @@ We can now compute the average precision (AvP) using the values of precision for
 AvP = (1/1 + 2/2 + 3/4) / 3 = 0.91 
 ```
 
-Let's assume that the user did second search with a different information need for which the system displayed an average precision of 0.82. 
+Let's assume that the user did a second search with a different information need for which the system displayed an average precision of 0.82. 
 
 We can compute the system's Mean Average Precision (MAP) for both information needs as:
 ```
